@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Road to the Regents – U.S. History Review Plan</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --navy: #003a63;
+      --navy-dark: #002846;
+      --blue-light: #e5effa;
+      --blue-mid: #2c73c9;
+      --gray-border: #cfd4dd;
+      --gray-light: #f7f9fc;
+      --text-main: #222222;
+
+      --segment-mini: #2c73c9;
+      --segment-guided: #1f8a70;
+      --segment-independent: #c96f2c;
+      --segment-share: #7a3fb1;
+      --segment-materials: #555555;
+
+      --highlight-bg: #fff6b0;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "Calibri", sans-serif;
+      background: #ffffff;
+      color: var(--text-main);
+      line-height: 1.5;
+    }
+
+    .highlight {
+      background: var(--highlight-bg);
+      padding: 0 2px;
+    }
+
+    .top-strip {
+      border-top: 3px solid var(--blue-mid);
+    }
+
+    header {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 12px 16px 0;
+    }
+
+    .unit-meta {
+      font-size: 0.85rem;
+      color: var(--navy-dark);
+      text-align: center;
+      margin-bottom: 8px;
+    }
+
+    .unit-title-bar {
+      background: var(--navy);
+      color: #ffffff;
+      text-align: center;
+      padding: 14px 16px;
+      border-radius: 4px 4px 0 0;
+      border: 1px solid var(--navy-dark);
+      border-bottom: none;
+    }
+
+    .unit-title-bar h1 {
+      margin: 0;
+      font-size: 1.7rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+    }
+
+    .wrapper {
+      max-width: 1100px;
+      margin: 0 auto 40px;
+      padding: 0 16px 24px;
+      border: 1px solid var(--gray-border);
+      border-top: none;
+      border-radius: 0 0 4px 4px;
+      background: #ffffff;
+    }
+
+    .overview-grid {
+      display: grid;
+      grid-template-columns: 220px minmax(0, 1fr);
+      border: 1px solid var(--gray-border);
+      border-radius: 3px;
+      overflow: hidden;
+      margin: 16px 0 24px;
+    }
+
+    .overview-label {
+      background: var(--blue-light);
+      border-right: 1px solid var(--gray-border);
+      padding: 10px 12px;
+      font-weight: 600;
+      color: var(--navy-dark);
+      font-size: 0.93rem;
+    }
+
+    .overview-value {
+      padding: 10px 12px;
+      font-size: 0.93rem;
+    }
+
+    .section-heading {
+      margin: 20px 0 10px;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--navy-dark);
+      border-bottom: 2px solid var(--blue-mid);
+      padding-bottom: 4px;
+    }
+
+    .intro-text {
+      font-size: 0.95rem;
+      background: var(--gray-light);
+      border: 1px solid var(--gray-border);
+      border-radius: 3px;
+      padding: 10px 12px;
+      margin-bottom: 18px;
+    }
+
+    .days-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .day-card {
+      border: 1px solid var(--gray-border);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+
+    .day-header {
+      background: var(--blue-mid);
+      color: #ffffff;
+      padding: 8px 12px;
+      font-size: 0.98rem;
+      font-weight: 600;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .day-header span.day-label {
+      font-weight: 600;
+    }
+
+    .day-body {
+      padding: 8px 10px 10px;
+      background: #ffffff;
+    }
+
+    .day-focus {
+      margin-bottom: 8px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--navy-dark);
+      background: var(--blue-light);
+      border-radius: 2px;
+      padding: 6px 8px;
+    }
+
+    .segments-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 8px;
+      margin-top: 4px;
+    }
+
+    .segment-card {
+      border: 1px solid var(--gray-border);
+      border-radius: 3px;
+      background: #ffffff;
+      display: flex;
+      flex-direction: column;
+      min-height: 120px;
+    }
+
+    .segment-header {
+      padding: 6px 8px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #ffffff;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+    }
+
+    .segment-body {
+      padding: 8px;
+      font-size: 0.9rem;
+    }
+
+    .segment-body ul {
+      margin: 0 0 0 18px;
+      padding: 0;
+    }
+
+    .segment-body li {
+      margin-bottom: 4px;
+    }
+
+    .mini-lesson .segment-header {
+      background: var(--segment-mini);
+    }
+
+    .guided-practice .segment-header {
+      background: var(--segment-guided);
+    }
+
+    .independent-practice .segment-header {
+      background: var(--segment-independent);
+    }
+
+    .share-closure .segment-header {
+      background: var(--segment-share);
+    }
+
+    .materials .segment-header {
+      background: var(--segment-materials);
+    }
+
+    @media (max-width: 700px) {
+      .overview-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="top-strip"></div>
+
+  <header>
+    <div class="unit-meta">
+      11th Grade U.S. History • Northside Charter High School • Road to the Regents
+    </div>
+    <div class="unit-title-bar">
+      <h1>Road to the Regents: U.S. History Review &amp; Skills Bootcamp</h1>
+    </div>
+  </header>
+
+  <div class="wrapper">
+    <!-- Overview -->
+    <div class="overview-grid">
+      <div class="overview-label">Focus</div>
+      <div class="overview-value">
+        <strong><u>Regents Exam in U.S. History &amp; Government (Framework)</u></strong> –
+        <span class="highlight">
+          Daily practice with stimulus based multiple choice, Short Essay Sets 1 and 2, and the Civic Literacy Essay while reviewing content from Reconstruction to modern civil rights.
+        </span>
+      </div>
+
+      <div class="overview-label">Timeframe</div>
+      <div class="overview-value">
+        This plan covers <strong>45 minute classes</strong> from early December through mid January.
+        Below are <strong>Days 1–6</strong> of the bootcamp, starting on <strong>December 3</strong>.
+      </div>
+    </div>
+
+    <h2 class="section-heading">Unit Overview – Road to the Regents</h2>
+    <div class="intro-text">
+      This Regents prep sequence is my <strong>Road to the Regents</strong> plan for my 11th graders at Northside.
+      Most of my students are not yet comfortable 11th grade readers and writers, so the bootcamp is built around:
+      <ul>
+        <li><strong>Short, clear mini lessons</strong> that chunk content from <span class="highlight">Reconstruction through the modern civil rights movement</span>.</li>
+        <li><strong>Partner work and talk time</strong> every day so students are not reading or writing alone for long stretches.</li>
+        <li><strong>Daily Regents practice</strong> – at least a few stimulus based multiple choice questions and a quick written task linked to Short Essay Set 1, Set 2, or the Civic Literacy Essay.</li>
+        <li><strong>Guided note templates</strong> based on the event organizers you shared (Context, Significance, Constitutional or Civic Issues, Efforts) so students can turn content into usable essay evidence.</li>
+      </ul>
+      I keep my teacher voice warm and direct. I tell students exactly <strong>why</strong> each move matters for the Regents:
+      <span class="highlight">“We are doing this question the same way you will see it on test day, so practice the moves now while we are together.”</span>
+    </div>
+
+    <!-- Daily Plans -->
+    <h2 class="section-heading">Daily Plans – Workshop Structure (Days 1–6)</h2>
+
+    <div class="days-grid">
+
+      <!-- Day 1 -->
+      <article class="day-card" id="day-1">
+        <div class="day-header">
+          <span class="day-label">Day 1 (Dec 3)</span>
+          <span class="day-short-title">Launch Road to the Regents &amp; Baseline MC Check</span>
+        </div>
+        <div class="day-body">
+          <div class="day-focus">
+            <strong>Day focus:</strong> Introduce the <span class="highlight">U.S. History Regents exam structure</span>, lower stress, and get a <strong>baseline multiple choice snapshot</strong> using content students already saw from the American Revolution through Reconstruction.
+          </div>
+
+          <div class="segments-grid">
+            <div class="segment-card mini-lesson">
+              <div class="segment-header">Mini Lesson</div>
+              <div class="segment-body">
+                <ul>
+                  <li>Project a simple slide titled <strong>“Road to the Regents”</strong> with the exam parts: <strong>Part I – MC, Part II – Short Essays (Set 1 and Set 2), Part III – Civic Literacy Essay</strong>.</li>
+                  <li>Very quickly explain what each part asks students to do and how many points it is worth, then highlight that <span class="highlight">small improvements on MC and short essays can move a student to passing</span>.</li>
+                  <li>On the board, model a <strong>“Regents MC Attack Steps”</strong> anchor:
+                    <ol>
+                      <li>Read the <strong>source or map</strong> title.</li>
+                      <li>Underline key words in the question.</li>
+                      <li>Eliminate two wrong answers first.</li>
+                      <li>Choose best remaining answer and circle it.</li>
+                    </ol>
+                  </li>
+                  <li>Emphasize that we will use these same steps every day so they feel automatic by January.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="segment-card guided-practice">
+              <div class="segment-header">Guided Practice</div>
+              <div class="segment-body">
+                <ul>
+                  <li>As a class, walk through <strong>3–4 released Regents MC questions</strong> from early content (Revolution, Constitution, Civil War) that use short text or a simple map.</li>
+                  <li>Teacher thinks aloud with the anchor chart:
+                    <em>“The question says <strong>‘a major cause of the American Revolution’</strong>. I see ‘taxation without representation’ in choice 2. That matches what we talked about, so I am going to cross off the choices about slavery and women because they do not match this question.”</em>
+                  </li>
+                  <li>Students answer on whiteboards or scrap paper, then hold up responses so the teacher can see patterns.</li>
+                  <li>Quickly celebrate correct answers and correct one common error with clear language rather than shame.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="segment-card independent-practice">
+              <div class="segment-header">Independent Practice</div>
+              <div class="segment-body">
+                <ul>
+                  <li>Students complete a <strong>6 question baseline MC mini quiz</strong> focused on content up through Reconstruction.</li>
+                  <li>Questions use short source snippets so reading load is manageable. Timing is about 10 minutes.</li>
+                  <li>Students bubble answers on a very simple half sheet to mimic Regents answer sheets.</li>
+                  <li>Teacher circulates to quietly redirect off task students and note who needs reading support for stems and answer choices.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="segment-card share-closure">
+              <div class="segment-header">Share / Closure</div>
+              <div class="segment-body">
+                <ul>
+                  <li>Collect quizzes for quick data. Show an anonymous sample of <strong>neat bubbling</strong> and label it as a positive example.</li>
+                  <li>Ask students to do a one sentence exit ticket in their notebook:
+                    <span class="highlight"><em>“One step that helped me on MC today was...”</em></span>
+                  </li>
+                  <li>Preview Day 2:
+                    <em>“Tomorrow we dive back into <strong>Reconstruction and the Freedmen’s Bureau</strong>, and we will start using the event notes pages you will keep for your Civic Literacy Essay.”</em>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="segment-card materials">
+              <div class="segment-header">Materials / Resources</div>
+              <div class="segment-body">
+                <ul>
+                  <li>Slides with Regents exam overview and “MC Attack Steps”.</li>
+                  <li>4 released US History Regents MC questions from early content (printed or projected).</li>
+                  <li>6 question baseline MC mini quiz (Revolution to Reconstruction).</li>
+                  <li>Student notebooks, scrap paper or mini whiteboards.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Day 2 -->
+      <article class="day-card" id="day-2">
+        <div class="day-header">
+          <span class="day-label">Day 2 (Dec 4)</span>
+          <span class="day-short-title">Reconstruction &amp; Freedmen’s Bureau – Event Organizer</span>
+        </div>
+        <div class="day-body">
+          <div class="day-focus">
+            <strong>Day focus:</strong> Refresh key <span class="highlight">Reconstruction ideas</span> and teach students how to use the <strong>event note organizer</strong> (Context, Significance, Constitutional or Civic Issue, Efforts) for <strong>Reconstruction</strong> and the <strong>Establishment of the Freedmen’s Bureau</strong>.
+          </div>
+
+          <div class="segments-grid">
+            <div class="segment-card mini-lesson">
+              <div class="segment-header">Mini Lesson</div>
+              <div class="segment-body">
+                <ul>
+                  <li>Quick <strong>Do Now</strong>: 3 Regents MC questions on Reconstruction (13th–15th Amendments, sharecropping, Black Codes). Students answer independently in notebooks using the MC Attack Steps chart.</li>
+                  <li>Check answers as a class with raised hands. Ask students to explain why one wrong answer is wrong to build test language.</li>
+                  <li>Project the <strong>“Event: Reconstruction”</strong> organizer. Walk through the four boxes:
+                    <em>Context, Significance, Constitutional or Civic Issues, Efforts</em>.
+                  </li>
+                  <li>Model filling one bullet in each box with students:
+                    <ul>
+                      <li>Context: <em>“When? Right after the Civil War, starting 1865.”</em></li>
+                      <li>Significance: <em>“Short term: freedmen can vote in some Southern states.”</em></li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="segment-card guided-practice">
+              <div class="segment-header">Guided Practice</div>
+              <div class="segment-body">
+                <ul>
+                  <li>Students work in <strong>pairs</strong> with a short, leveled reading on Reconstruction (Radical Republicans, 13th–15th Amendments, military districts).</li>
+                  <li>Partners highlight details that belong in the <strong>Context</strong> and <strong>Significance</strong> boxes of the Reconstruction organizer.</li>
+                  <li>Teacher pauses to think aloud about one paragraph and show how to pull out a short phrase rather than copy entire sentences.</li>
+                  <li>Class briefly shares out context bullets and the teacher adds them to a projected version of the organizer.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="segment-card independent-practice">
+              <div class="segment-header">Independent Practice</div>
+              <div class="segment-body">
+                <ul>
+                  <li>Hand out the <strong>“Event: Establishment of the Freedmen’s Bureau”</strong> organizer and show the engraving of the Freedmen’s school.</li>
+                  <li>Students silently annotate the image using a quick frame: <em>“I see... I think... This shows...”</em></li>
+                  <li>Each student writes at least one bullet in each of these boxes on their Freedmen’s Bureau page:
+                    <ul>
+                      <li>Context: who created it and when.</li>
+                      <li>Significance: short term effects for freed people.</li>
+                      <li>Issue: example, <em>“lack of education and support for former enslaved people.”</em></li>
+                    </ul>
+                  </li>
+                  <li>Teacher circulates, especially to SPED and MLL students, and offers sentence stems in the issue box like:
+                    <em>“A civic issue was that freed people did not have...”</em>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="segment-card share-closure">
+              <div class="segment-header">Share / Closure</div>
+              <div class="segment-body">
+                <ul>
+                  <li>Ask pairs to share one strong <strong>Significance</strong> bullet about the Freedmen’s Bureau while the teacher collects them on chart paper labeled <strong>“Evidence we can use later”</strong>.</li>
+                  <li>Exit ticket: students answer a short written Regents style question:
+                    <span class="highlight"><em>“Identify one way Reconstruction tried to expand rights for African Americans.”</em></span>
+                  </li>
+                  <li>Preview:
+                    <em>“Tomorrow we are going to see how some white Southerners and courts <strong>fought back</strong> against these changes.”</em>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="segment-card materials">
+              <div class="segment-header">Materials / Resources</div>
+              <div class="segment-body">
+                <ul>
+                  <li>3 Regents MC questions on Reconstruction (printed or projected).</li>
+                  <li>“Event: Reconstruction” organizer and “Event: Establishment of the Freedmen’s Bureau” organizer.</li>
+                  <li>Leveled Reconstruction reading (Radical Republicans, amendments, Black Codes, sharecropping).</li>
+                  <li>Freedmen’s Bureau school engraving image.</li>
+                  <li>Chart paper to record class “significance” bullets.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Day 3 -->
+      <article class="day-card" id="day-3">
+        <div class="day-header">
+          <span class="day-label">Day 3 (Dec 5)</span>
+          <span class="day-short-title">Backlash to Reconstruction &amp; Plessy v. Ferguson</span>
+        </div>
+        <div class="day-body">
+          <div class="day-focus">
+            <strong>Day focus:</strong> Build a clear picture of <span class="highlight">backlash to Reconstruction</span> and <span class="highlight">Jim Crow segregation</span> using the <strong>Backlash Against Reconstruction</strong> and <strong>Plessy v. Ferguson</strong> event organizers, and connect these to Regents style questions.
+          </div>
+
+          <div class="segments-grid">
+            <div class="segment-card mini-lesson">
+              <div class="segment-header">Mini Lesson</div>
+              <div class="segment-body">
+                <ul>
+                  <li>Do Now: 3 MC questions on Reconstruction backlash and Jim Crow (ex: poll taxes, literacy tests, grandfather clauses).</li>
+                  <li>Review answers quickly and highlight one vocabulary word students must know for Regents (for example <strong>“segregation”</strong> or <strong>“Jim Crow laws”</strong>).</li>
+                  <li>Project the Thomas Nast cartoon <strong>“The Union As It Was”</strong> and give students 30 seconds to silently observe.</li>
+                  <li>Ask three quick prompts:
+                    <em>“Who do you see? How do you think they feel? What do you notice about the African American figure?”</em>
+                  </li>
+                  <li>Introduce the idea of <strong>“backlash”</strong> as resistance to change that tries to pull rights back.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="segment-card guided-practice">
+              <div class="segment-header">Guided Practice</div>
+              <div class="segment-body">
+                <ul>
+                  <li>Hand out the <strong>“Event: Backlash Against Reconstruction”</strong> organizer.</li>
+                  <li>In pairs, students read a short paragraph on the end of Reconstruction (Compromise of 1877) and the rise of white supremacist groups and Jim Crow laws.</li>
+                  <li>As a class, fill the <strong>Context</strong> box together on the projected copy. Call on students to add key details:
+                    <em>“federal troops leave the South in 1877, white Democrats take back state governments.”</em>
+                  </li>
+                  <li>Partners then work to draft bullets in <strong>Significance</strong> and <strong>Issue</strong> boxes with sentence stems:
+                    <em>“A short term effect was...” “A civic issue was that African Americans...”</em>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="segment-card independent-practice">
+              <div class="segment-header">Independent Practice</div>
+              <div class="segment-body">
+                <ul>
+                  <li>Give students the <strong>“Event: Plessy v. Ferguson”</strong> organizer and a brief summary of the case in student friendly language.</li>
+                  <li>Students underline the ruling phrase <strong>“separate but equal”</strong> and circle the amendment number that is being twisted (14th Amendment equal protection).</li>
+                  <li>Each student fills:
+                    <ul>
+                      <li>Context: year, what Plessy did, what the Supreme Court decided.</li>
+                      <li>Significance: one short term and one long term effect of the ruling.</li>
+                      <li>Issue: equal protection under the 14th Amendment.</li>
+                    </ul>
+                  </li>
+                  <li>Students then answer a short Regents style constructed response in their notebook:
+                    <span class="highlight"><em>“Explain how Plessy v. Ferguson helped legalize segregation.”</em></span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="segment-card share-closure">
+              <div class="segment-header">Share / Closure</div>
+              <div class="segment-body">
+                <ul>
+                  <li>Ask for 2 volunteer answers to the Plessy question and underline phrases that show clear cause and effect (for example <em>“separate but equal let states keep Jim Crow”</em>).</li>
+                  <li>Exit ticket: students rate on a quick scale in their notes:
+                    <em>“How confident do I feel explaining what Jim Crow was?”</em> (1 low, 3 medium, 5 high).
+                  </li>
+                  <li>Preview:
+                    <em>“Next class we jump into the <strong>Gilded Age and the rise of big business</strong> and keep building these event pages.”</em>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="segment-card materials">
+              <div class="segment-header">Materials / Resources</div>
+              <div class="segment-body">
+                <ul>
+                  <li>3 MC questions on Jim Crow and Reconstruction backlash.</li>
+                  <li>“Event: Backlash Against Reconstruction” organizer.</li>
+                  <li>“Event: Plessy v. Ferguson” organizer.</li>
+                  <li>Thomas Nast cartoon image “The Union As It Was”.</li>
+                  <li>Short reading on Compromise of 1877 and the rise of Jim Crow.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Day 4 -->
+      <article class="day-card" id="day-4">
+        <div class="day-header">
+          <span class="day-label">Day 4 (Dec 8)</span>
+          <span class="day-short-title">Rise of Monopolies – Gilded Age Economy</span>
+        </div>
+        <div class="day-body">
+          <div class="day-focus">
+            <strong>Day focus:</strong> Introduce <span class="highlight">Gilded Age industrialization and the rise of monopolies</span> using the <strong>Rise of Monopolies</strong> event organizer and practice reading political cartoons for Regents style questions.
+          </div>
+
+          <div class="segments-grid">
+            <div class="segment-card mini-lesson">
+              <div class="segment-header">Mini Lesson</div>
+              <div class="segment-body">
+                <ul>
+                  <li>Do Now: 2 MC questions on industrialization (for example, railroads, steel, oil) plus 1 MC on the idea of a monopoly or trust.</li>
+                  <li>Show the Puck cartoon <strong>“Next!”</strong>, where trusts are lined up as giant figures.</li>
+                  <li>Ask students to quietly write three labels in notebooks:
+                    <em>“Big Business,” “Workers,” “Government.”</em>
+                  </li>
+                  <li>Think pair share:
+                    <em>“Which group in this cartoon looks powerful? Which group looks small or weak?”</em>
+                  </li>
+                  <li>Define <strong>monopoly</strong> and <strong>trust</strong> in simple language and connect to Regents vocabulary.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="segment-card guided-practice">
+              <div class="segment-header">Guided Practice</div>
+              <div class="segment-body">
+                <ul>
+                  <li>Hand out the <strong>“Event: Rise of Monopolies”</strong> organizer.</li>
+                  <li>Read a short guided note paragraph on Carnegie, Rockefeller, and the idea of “robber barons” vs “captains of industry”.</li>
+                  <li>As a class, fill the <strong>Context</strong> box:
+                    <em>“late 1800s, rapid industrial growth, few government rules on big business.”</em>
+                  </li>
+                  <li>In pairs, students pick two specific examples from the paragraph to add to the <strong>Significance</strong> box, such as:
+                    <em>“higher output and cheaper steel”</em> or <em>“low wages and dangerous working conditions.”</em>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="segment-card independent-practice">
+              <div class="segment-header">Independent Practice</div>
+              <div class="segment-body">
+                <ul>
+                  <li>Students answer a short Regents style constructed response tied to the cartoon:
+                    <span class="highlight"><em>“According to the cartoon, how did monopolies affect competition or small businesses?”</em></span>
+                  </li>
+                  <li>They must use a detail from the cartoon in their answer (for example, size of the characters, facial expressions).</li>
+                  <li>Students then complete the <strong>Issue</strong> box on their organizer:
+                    <em>“A civic issue was that big trusts had too much power and hurt competition.”</em>
+                  </li>
+                  <li>Teacher collects a few notebooks to spot check if students can convert visuals into written evidence.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="segment-card share-closure">
+              <div class="segment-header">Share / Closure</div>
+              <div class="segment-body">
+                <ul>
+                  <li>Ask 2–3 students to share one bullet from their <strong>Issue</strong> box and circle similar ideas on the board.</li>
+                  <li>Closure prompt on the board:
+                    <span class="highlight"><em>“Why would some Americans start to demand that the government do something about monopolies?”</em></span>
+                    Students answer with one sentence in notebooks.
+                  </li>
+                  <li>Preview:
+                    <em>“Tomorrow we look at <strong>government regulation of business</strong> and practice a short essay using these two event pages together.”</em>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="segment-card materials">
+              <div class="segment-header">Materials / Resources</div>
+              <div class="segment-body">
+                <ul>
+                  <li>3 MC questions on industrialization and monopolies.</li>
+                  <li>“Event: Rise of Monopolies” organizer.</li>
+                  <li>Puck cartoon “Next!” image.</li>
+                  <li>Short guided note reading on Carnegie, Rockefeller, trusts, and workers.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Day 5 -->
+      <article class="day-card" id="day-5">
+        <div class="day-header">
+          <span class="day-label">Day 5 (Dec 9)</span>
+          <span class="day-short-title">Government Regulation of Business &amp; Short Essay Set 1 Practice</span>
+        </div>
+        <div class="day-body">
+          <div class="day-focus">
+            <strong>Day focus:</strong> Use the <strong>Government Regulation of Business</strong> event organizer to understand <span class="highlight">Progressive trust busting</span> and model a <strong>Short Essay Set 1 style response</strong> that connects monopolies to reforms.
+          </div>
+
+          <div class="segments-grid">
+            <div class="segment-card mini-lesson">
+              <div class="segment-header">Mini Lesson</div>
+              <div class="segment-body">
+                <ul>
+                  <li>Do Now: 3 MC questions that pair a short quote or cartoon with a question about <strong>Sherman Antitrust Act</strong> and <strong>Theodore Roosevelt</strong> as a trust buster.</li>
+                  <li>Review answers and briefly define:
+                    <strong>regulation</strong> and <strong>trust busting</strong>.
+                  </li>
+                  <li>Show the cartoon of Theodore Roosevelt controlling trusts and ask:
+                    <em>“What is he doing? Does he look scared of big business or in charge of it?”</em>
+                  </li>
+                  <li>Explain that Regents loves questions that link Gilded Age problems to Progressive Era solutions.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="segment-card guided-practice">
+              <div class="segment-header">Guided Practice</div>
+              <div class="segment-body">
+                <ul>
+                  <li>Hand out the <strong>“Event: Government Regulation of Business”</strong> organizer.</li>
+                  <li>Read a short passage on Sherman Antitrust Act, Northern Securities Case, and Teddy Roosevelt.</li>
+                  <li>As a class, complete the <strong>Context</strong> and part of the <strong>Significance</strong> boxes:
+                    <em>“When? Early 1900s. Why? To limit the power of giant trusts and protect competition and consumers.”</em>
+                  </li>
+                  <li>Students in pairs list at least two <strong>Efforts</strong> in the bottom box:
+                    <em>“Using Sherman Antitrust Act to break up trusts”</em>,
+                    <em>“Creating the Interstate Commerce Commission to regulate railroads.”</em>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="segment-card independent-practice">
+              <div class="segment-header">Independent Practice</div>
+              <div class="segment-body">
+                <ul>
+                  <li>Project a Short Essay Set 1 style question, something like:
+                    <span class="highlight"><em>“Explain one way the federal government responded to the problems created by big business in the late 1800s and early 1900s.”</em></span>
+                  </li>
+                  <li>Model a quick outline with students using their <strong>Rise of Monopolies</strong> and <strong>Government Regulation of Business</strong> event pages as evidence.</li>
+                  <li>Students then write a <strong>3–5 sentence short essay response</strong> in their notebooks, using the frame:
+                    <em>“One problem caused by big business was...” “The government responded by...” “This mattered because...”</em>
+                  </li>
+                  <li>Teacher collects 4–5 responses to quickly score for use of specific evidence and clear explanation.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="segment-card share-closure">
+              <div class="segment-header">Share / Closure</div>
+              <div class="segment-body">
+                <ul>
+                  <li>Call on one or two students to share part of their answer while you highlight the sentence that best shows cause and effect.</li>
+                  <li>Closure reflection in notebook:
+                    <span class="highlight"><em>“How did your event organizers make writing the short essay easier?”</em></span>
+                  </li>
+                  <li>Preview:
+                    <em>“Next up we shift to <strong>Immigration and Urbanization in the Gilded Age</strong> and reactions to that, using the same event page strategy.”</em>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="segment-card materials">
+              <div class="segment-header">Materials / Resources</div>
+              <div class="segment-body">
+                <ul>
+                  <li>3 MC questions on Sherman Antitrust Act, ICC, and Teddy Roosevelt.</li>
+                  <li>“Event: Government Regulation of Business” organizer.</li>
+                  <li>Gilded Age and Progressive regulation reading (short, leveled paragraphs).</li>
+                  <li>TR trust busting cartoon image.</li>
+                  <li>Short Essay Set 1 style prompt and simple scoring checklist.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Day 6 -->
+      <article class="day-card" id="day-6">
+        <div class="day-header">
+          <span class="day-label">Day 6 (Dec 10)</span>
+          <span class="day-short-title">Immigration &amp; Urbanization – Reactions to the Gilded Age</span>
+        </div>
+        <div class="day-body">
+          <div class="day-focus">
+            <strong>Day focus:</strong> Use the <strong>Immigration and Urbanization in the Gilded Age</strong> and <strong>Reactions Against the Gilded Age</strong> event organizers to connect <span class="highlight">new immigration, city growth, and labor conflict</span>, while continuing daily MC practice.
+          </div>
+
+          <div class="segments-grid">
+            <div class="segment-card mini-lesson">
+              <div class="segment-header">Mini Lesson</div>
+              <div class="segment-body">
+                <ul>
+                  <li>Do Now: 3 MC questions using a short chart or map of immigration patterns (for example, Ellis Island arrivals) and a tenement photo.</li>
+                  <li>Review answers and define or review:
+                    <strong>urbanization, tenement, nativism</strong>.
+                  </li>
+                  <li>Project a tenement photograph and ask students to list three words it makes them think of (crowded, dark, unsafe, etc.). Record responses on the board.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="segment-card guided-practice">
+              <div class="segment-header">Guided Practice</div>
+              <div class="segment-body">
+                <ul>
+                  <li>Hand out the <strong>“Event: Immigration and Urbanization in the Gilded Age”</strong> organizer.</li>
+                  <li>Read a short paragraph out loud that describes push and pull factors and basic city conditions.</li>
+                  <li>Class helps fill the <strong>Context</strong> box together:
+                    <em>“late 1800s to early 1900s, many immigrants from Southern and Eastern Europe, cities grow fast, lots of factory jobs.”</em>
+                  </li>
+                  <li>In pairs, students highlight two details from the reading that belong in the <strong>Significance</strong> box and write them in their own words.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="segment-card independent-practice">
+              <div class="segment-header">Independent Practice</div>
+              <div class="segment-body">
+                <ul>
+                  <li>Give students the <strong>“Event: Reactions Against the Gilded Age”</strong> organizer and a copy of a labor vs monopoly cartoon such as <em>“The tournament of today”</em>.</li>
+                  <li>Students first annotate the cartoon in pairs:
+                    <em>“Where do you see labor? Where do you see big business?”</em>
+                  </li>
+                  <li>Individually, they complete:
+                    <ul>
+                      <li>Context: strikes, labor unions like Knights of Labor, early populist farmers.</li>
+                      <li>Issue: unsafe working conditions, low wages, child labor.</li>
+                    </ul>
+                  </li>
+                  <li>Students then answer one Regents style MC question that uses the cartoon, and one short constructed response:
+                    <span class="highlight"><em>“Identify one way workers responded to Gilded Age conditions.”</em></span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="segment-card share-closure">
+              <div class="segment-header">Share / Closure</div>
+              <div class="segment-body">
+                <ul>
+                  <li>Ask volunteers to share one <strong>Effort</strong> they listed in the Reactions organizer (for example, forming unions, going on strike, supporting the Populist Party).</li>
+                  <li>Closure prompt:
+                    <span class="highlight"><em>“If you had to write a short essay about problems in the Gilded Age, which three event pages would you pull as evidence?”</em></span>
+                    Students circle three organizers in their notebook and jot a one word reminder of the issue next to each.
+                  </li>
+                  <li>Preview:
+                    <em>“Next we will move into <strong>Progressive Era reforms</strong> and keep connecting event pages to short essay writing and later to the Civic Literacy Essay.”</em>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="segment-card materials">
+              <div class="segment-header">Materials / Resources</div>
+              <div class="segment-body">
+                <ul>
+                  <li>3 MC questions on immigration and urbanization (chart, map, photo based).</li>
+                  <li>“Event: Immigration and Urbanization in the Gilded Age” organizer.</li>
+                  <li>“Event: Reactions Against the Gilded Age” organizer.</li>
+                  <li>Tenement photo and labor vs monopoly cartoon.</li>
+                  <li>Short reading on push and pull factors, city life, unions and Populist reactions.</li>
+                </ul>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </article>
+
+    </div> <!-- end days-grid -->
+
+  </div> <!-- end wrapper -->
+</body>
+</html>
