@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Plessy v. Ferguson – Video Guide Worksheet</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --bg-page: #f3f6fb;
+      --card-bg: #ffffff;
+      --accent-blue: #2c73c9;
+      --accent-gold: #f5c26b;
+      --accent-green: #3aa676;
+      --accent-purple: #8e6fd9;
+      --accent-gray: #eef1f7;
+      --text-main: #222222;
+      --text-muted: #555555;
+      --border-soft: #d3d9e6;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: var(--bg-page);
+      color: var(--text-main);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      padding: 16px;
+    }
+
+    .page {
+      width: 100%;
+      max-width: 1100px;
+      background: var(--card-bg);
+      padding: 18px 22px;
+      border-radius: 14px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+      border: 1px solid var(--border-soft);
+    }
+
+    .page-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 10px;
+      border-bottom: 2px solid var(--border-soft);
+      padding-bottom: 10px;
+      margin-bottom: 14px;
+    }
+
+    .title-block {
+      max-width: 65%;
+    }
+
+    .title-block h1 {
+      margin: 0 0 4px;
+      font-size: 1.3rem;
+      color: var(--accent-blue);
+      letter-spacing: 0.03em;
+    }
+
+    .title-block p {
+      margin: 0;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .info-block {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 4px 6px;
+      font-size: 0.8rem;
+    }
+
+    .info-label {
+      font-weight: 600;
+      color: var(--text-muted);
+      white-space: nowrap;
+    }
+
+    .info-line {
+      border-bottom: 1px solid var(--border-soft);
+      min-width: 120px;
+      height: 1.1rem;
+    }
+
+    .big-question {
+      background: linear-gradient(to right, #fff8df, #ffe9c4);
+      border-radius: 10px;
+      padding: 8px 12px;
+      margin-bottom: 12px;
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 2fr);
+      gap: 8px;
+    }
+
+    .big-question-label {
+      font-size: 0.95rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: #8a5a0b;
+    }
+
+    .big-question-text {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #7a4d03;
+    }
+
+    .big-question-response {
+      background: rgba(255, 255, 255, 0.7);
+      border-radius: 8px;
+      border: 1px dashed rgba(0, 0, 0, 0.2);
+      min-height: 60px;
+    }
+
+    .section {
+      margin-bottom: 12px;
+      border-radius: 12px;
+      padding: 10px 12px;
+      border: 1px solid var(--border-soft);
+      box-shadow: 0 3px 7px rgba(0, 0, 0, 0.1);
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 6px;
+      margin-bottom: 6px;
+    }
+
+    .section-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .section-title span.tag {
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.8);
+      border: 1px solid rgba(255, 255, 255, 0.9);
+    }
+
+    .section-note {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      text-align: right;
+    }
+
+    .section.instructions {
+      font-size: 0.82rem;
+    }
+
+    /* Section color themes */
+    .section.source {
+      background: linear-gradient(to bottom right, #e6f0ff, #f5f8ff);
+      border-left: 4px solid var(--accent-blue);
+    }
+
+    .section.context {
+      background: linear-gradient(to bottom right, #e7f7ee, #f5fff8);
+      border-left: 4px solid var(--accent-green);
+    }
+
+    .section.significance {
+      background: linear-gradient(to bottom right, #fff4e3, #fff9ef);
+      border-left: 4px solid var(--accent-gold);
+    }
+
+    .section.constitution {
+      background: linear-gradient(to bottom right, #f3ecff, #fbf7ff);
+      border-left: 4px solid var(--accent-purple);
+    }
+
+    .prompt-text {
+      font-size: 0.8rem;
+      margin-bottom: 6px;
+      color: var(--text-main);
+    }
+
+    .prompt-text strong {
+      font-weight: 700;
+    }
+
+    .response-box {
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 8px;
+      border: 1px dashed rgba(0, 0, 0, 0.2);
+      margin-bottom: 6px;
+      padding: 4px 6px;
+      min-height: 70px;
+    }
+
+    .response-box.tall {
+      min-height: 110px;
+    }
+
+    .response-box.lines {
+      background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.09) 1px, transparent 1px);
+      background-size: 100% 18px;
+      background-repeat: repeat-y;
+      background-position: top left;
+      padding-top: 6px;
+    }
+
+    /* Context grid */
+    .context-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 6px;
+      margin-top: 4px;
+    }
+
+    .context-item {
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 8px;
+      border: 1px dashed rgba(0, 0, 0, 0.15);
+      padding: 4px 6px;
+      min-height: 80px;
+      font-size: 0.78rem;
+    }
+
+    .context-label {
+      font-weight: 700;
+      font-size: 0.78rem;
+      margin-bottom: 2px;
+      color: var(--accent-green);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .context-lines {
+      margin-top: 3px;
+      height: 100%;
+      background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.09) 1px, transparent 1px);
+      background-size: 100% 16px;
+      background-repeat: repeat-y;
+      background-position: top left;
+    }
+
+    .mini-caption {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    /* Cause and effect layout */
+    .cause-effect-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 6px;
+      margin-top: 4px;
+    }
+
+    .cause-effect-box .subheading {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #965906;
+      margin-bottom: 2px;
+    }
+
+    /* T chart */
+    .tchart {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid rgba(0, 0, 0, 0.15);
+      background: rgba(255, 255, 255, 0.95);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.14);
+    }
+
+    .tchart-column {
+      border-right: 1px solid rgba(0, 0, 0, 0.12);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .tchart-column:last-child {
+      border-right: none;
+    }
+
+    .tchart-header {
+      padding: 4px 6px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-align: center;
+      background: #efe7ff;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+    }
+
+    .tchart-header span {
+      display: block;
+    }
+
+    .tchart-header .label {
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: #5a3ca6;
+    }
+
+    .tchart-header .hint {
+      font-weight: 500;
+      color: #6e5ab8;
+      font-size: 0.72rem;
+    }
+
+    .tchart-body {
+      padding: 4px 6px;
+      flex: 1;
+      background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.09) 1px, transparent 1px);
+      background-size: 100% 18px;
+      background-repeat: repeat-y;
+      background-position: top left;
+    }
+
+    .bottom-reflection {
+      margin-top: 8px;
+      font-size: 0.78rem;
+      background: #f0f4ff;
+      border-radius: 9px;
+      padding: 6px 8px;
+      border: 1px dashed rgba(0, 0, 0, 0.18);
+    }
+
+    .bottom-reflection .reflection-label {
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #244f97;
+      margin-bottom: 2px;
+    }
+
+    .bottom-reflection .reflection-box {
+      margin-top: 2px;
+      background: #ffffff;
+      border-radius: 6px;
+      min-height: 55px;
+      background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.09) 1px, transparent 1px);
+      background-size: 100% 18px;
+      background-repeat: repeat-y;
+      background-position: top left;
+    }
+
+    /* Print tweaks */
+    @media print {
+      body {
+        padding: 0;
+        background: #ffffff;
+      }
+      .page {
+        box-shadow: none;
+        border-radius: 0;
+        border: none;
+        width: 100%;
+        max-width: 100%;
+        padding: 14px 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <!-- Header -->
+    <header class="page-header">
+      <div class="title-block">
+        <h1>Plessy v. Ferguson – Video Guide</h1>
+        <p>
+          Watch the mini lecture carefully. Pause as needed. Use this guide to help you take clear notes
+          on the case and the big civic question about equal protection.
+        </p>
+      </div>
+      <div class="info-block">
+        <div class="info-label">Name:</div>
+        <div class="info-line"></div>
+        <div class="info-label">Class:</div>
+        <div class="info-line"></div>
+        <div class="info-label">Date:</div>
+        <div class="info-line"></div>
+      </div>
+    </header>
+
+    <!-- Big Question -->
+    <section class="big-question">
+      <div>
+        <div class="big-question-label">Key Question from the Video</div>
+        <div class="big-question-text">
+          “Can something be <u>separate</u> and still be truly <u>equal</u>?”
+        </div>
+        <div class="mini-caption">
+          In your own words, explain what this question is really asking about life in the United States.
+        </div>
+      </div>
+      <div class="big-question-response"></div>
+    </section>
+
+    <!-- Section 1: Analyzing the source -->
+    <section class="section source">
+      <div class="section-header">
+        <div class="section-title">
+          Analyzing the Source
+          <span class="tag">Video notes</span>
+        </div>
+        <div class="section-note">
+          Use complete thoughts. Bullet points are fine.
+        </div>
+      </div>
+
+      <div class="prompt-text">
+        <strong>1. What kind of source is this?</strong> (Who is teaching, and how is the information being shared?)
+      </div>
+      <div class="response-box lines"></div>
+
+      <div class="prompt-text">
+        <strong>2. What is the main goal of this video?</strong>
+        What does the speaker want you to understand about <em>Plessy v. Ferguson</em>?
+      </div>
+      <div class="response-box lines tall"></div>
+
+      <div class="prompt-text">
+        <strong>3. Central focus:</strong> Write down 2 to 3 key words or phrases from the video that the teacher repeats
+        or really stresses. (Example: “separate but equal,” “equal protection,” “Jim Crow.”)
+      </div>
+      <div class="response-box lines"></div>
+    </section>
+
+    <!-- Section 2: Context – Five Ws and How -->
+    <section class="section context">
+      <div class="section-header">
+        <div class="section-title">
+          Historical and Geographic Context
+          <span class="tag">Five Ws and how</span>
+        </div>
+        <div class="section-note">
+          Fill in details you hear in the video about when, where, and why.
+        </div>
+      </div>
+
+      <div class="prompt-text">
+        Use the video to answer the <strong>who, what, where, when, how, and why</strong> for this case.
+        Try to squeeze in at least one specific detail in each box.
+      </div>
+
+      <div class="context-grid">
+        <div class="context-item">
+          <div class="context-label">Who</div>
+          <div class="mini-caption">Who are the main people and groups involved?</div>
+          <div class="context-lines"></div>
+        </div>
+        <div class="context-item">
+          <div class="context-label">What</div>
+          <div class="mini-caption">What law was being challenged? What was the fight about?</div>
+          <div class="context-lines"></div>
+        </div>
+        <div class="context-item">
+          <div class="context-label">Where</div>
+          <div class="mini-caption">Where did this case start, and who did it affect?</div>
+          <div class="context-lines"></div>
+        </div>
+        <div class="context-item">
+          <div class="context-label">When</div>
+          <div class="mini-caption">When did this happen, and what was going on in the United States at that time?</div>
+          <div class="context-lines"></div>
+        </div>
+        <div class="context-item">
+          <div class="context-label">How</div>
+          <div class="mini-caption">
+            How did Homer Plessy and his team turn one train ride into a Supreme Court case?
+          </div>
+          <div class="context-lines"></div>
+        </div>
+        <div class="context-item">
+          <div class="context-label">Why</div>
+          <div class="mini-caption">Why did they challenge this law? What were they trying to prove?</div>
+          <div class="context-lines"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: Significance – Cause and Effect -->
+    <section class="section significance">
+      <div class="section-header">
+        <div class="section-title">
+          Significance – Cause and Effect
+          <span class="tag">Impact over time</span>
+        </div>
+        <div class="section-note">
+          Think about short term and long term effects.
+        </div>
+      </div>
+
+      <div class="prompt-text">
+        Use the video to connect the <strong>cause</strong> (the case and the decision) to the
+        <strong>effects</strong> on people and laws in the United States.
+      </div>
+
+      <div class="cause-effect-grid">
+        <div class="cause-effect-box">
+          <div class="subheading">What caused the case?</div>
+          <div class="mini-caption">
+            What problems and laws led to <em>Plessy v. Ferguson</em>? How did Reconstruction ending and
+            Jim Crow growing connect to this case?
+          </div>
+          <div class="response-box lines tall"></div>
+        </div>
+        <div class="cause-effect-box">
+          <div class="subheading">What did the Court decide?</div>
+          <div class="mini-caption">
+            In your own words, explain what “separate but equal” meant in this decision.
+          </div>
+          <div class="response-box lines tall"></div>
+        </div>
+      </div>
+
+      <div class="prompt-text">
+        <strong>Short term impact:</strong> What happened in the years right after the 1896 decision?
+        How did this ruling affect Black communities in daily life?
+      </div>
+      <div class="response-box lines"></div>
+
+      <div class="prompt-text">
+        <strong>Long term impact:</strong> How did this case shape the next 50 to 60 years
+        of segregation and the later Civil Rights Movement (Brown v. Board and beyond)?
+      </div>
+      <div class="response-box lines tall"></div>
+    </section>
+
+    <!-- Section 4: Constitutional / Civic Issue – T Chart -->
+    <section class="section constitution">
+      <div class="section-header">
+        <div class="section-title">
+          Constitutional and Civic Issue
+          <span class="tag">Fourteenth Amendment</span>
+        </div>
+        <div class="section-note">
+          Use the video to help you fill in both sides.
+        </div>
+      </div>
+
+      <div class="prompt-text">
+        The big civic question is about the <strong>Fourteenth Amendment</strong>:
+        Does forcing people into separate spaces, even if they are called “equal,” violate the guarantee of
+        <strong>equal protection of the laws</strong>?
+      </div>
+
+      <div class="tchart">
+        <div class="tchart-column">
+          <div class="tchart-header">
+            <span class="label">Side A</span>
+            <span class="hint">1896 Supreme Court in Plessy v. Ferguson</span>
+          </div>
+          <div class="tchart-body"></div>
+        </div>
+        <div class="tchart-column">
+          <div class="tchart-header">
+            <span class="label">Side B</span>
+            <span class="hint">
+              Challenges and changes (NAACP, Thurgood Marshall, Brown v. Board, Civil Rights Movement)
+            </span>
+          </div>
+          <div class="tchart-body"></div>
+        </div>
+      </div>
+
+      <div class="bottom-reflection">
+        <div class="reflection-label">Today connection</div>
+        <div class="prompt-text">
+          The video ends by asking if we still live with new, more hidden versions of that old “separate but equal”
+          lie. Write a short reflection: <strong>Where do you see unfair or unequal treatment today, even if it does not look exactly like Jim Crow?</strong>
+        </div>
+        <div class="reflection-box"></div>
+      </div>
+    </section>
+  </div>
+</body>
+</html>
