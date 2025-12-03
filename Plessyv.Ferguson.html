@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Plessy v. Ferguson – Video Guide Worksheet</title>
+  <title>Plessy v. Ferguson Video Guide Worksheet</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
     :root {
@@ -12,7 +12,6 @@
       --accent-gold: #f5c26b;
       --accent-green: #3aa676;
       --accent-purple: #8e6fd9;
-      --accent-gray: #eef1f7;
       --text-main: #222222;
       --text-muted: #555555;
       --border-soft: #d3d9e6;
@@ -166,10 +165,6 @@
       text-align: right;
     }
 
-    .section.instructions {
-      font-size: 0.82rem;
-    }
-
     /* Section color themes */
     .section.source {
       background: linear-gradient(to bottom right, #e6f0ff, #f5f8ff);
@@ -263,22 +258,7 @@
       margin-top: 2px;
     }
 
-    /* Cause and effect layout */
-    .cause-effect-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 6px;
-      margin-top: 4px;
-    }
-
-    .cause-effect-box .subheading {
-      font-size: 0.8rem;
-      font-weight: 700;
-      color: #965906;
-      margin-bottom: 2px;
-    }
-
-    /* T chart */
+    /* Generic T chart (used twice) */
     .tchart {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -288,6 +268,7 @@
       border: 1px solid rgba(0, 0, 0, 0.15);
       background: rgba(255, 255, 255, 0.95);
       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.14);
+      margin-top: 4px;
     }
 
     .tchart-column {
@@ -332,34 +313,41 @@
       background-size: 100% 18px;
       background-repeat: repeat-y;
       background-position: top left;
+      min-height: 180px;
+      position: relative;
     }
 
-    .bottom-reflection {
-      margin-top: 8px;
-      font-size: 0.78rem;
-      background: #f0f4ff;
-      border-radius: 9px;
-      padding: 6px 8px;
-      border: 1px dashed rgba(0, 0, 0, 0.18);
-    }
-
-    .bottom-reflection .reflection-label {
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      color: #244f97;
+    .tchart-body .stem-text {
+      font-size: 0.72rem;
+      color: #444444;
       margin-bottom: 2px;
+      background: rgba(255, 255, 255, 0.8);
+      padding: 2px 2px;
     }
 
-    .bottom-reflection .reflection-box {
-      margin-top: 2px;
-      background: #ffffff;
-      border-radius: 6px;
-      min-height: 55px;
-      background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.09) 1px, transparent 1px);
-      background-size: 100% 18px;
-      background-repeat: repeat-y;
-      background-position: top left;
+    /* Cartoon block */
+    .cartoon-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.92);
+      border-radius: 8px;
+      border: 1px dashed rgba(0, 0, 0, 0.18);
+      padding: 6px;
+      margin-bottom: 6px;
+    }
+
+    .cartoon-wrap img {
+      max-width: 100%;
+      max-height: 180px;
+      object-fit: contain;
+      margin-bottom: 4px;
+    }
+
+    .cartoon-caption {
+      font-size: 0.7rem;
+      text-align: center;
+      color: var(--text-muted);
     }
 
     /* Print tweaks */
@@ -384,10 +372,10 @@
     <!-- Header -->
     <header class="page-header">
       <div class="title-block">
-        <h1>Plessy v. Ferguson – Video Guide</h1>
+        <h1>Plessy v. Ferguson Video Guide</h1>
         <p>
-          Watch the mini lecture carefully. Pause as needed. Use this guide to help you take clear notes
-          on the case and the big civic question about equal protection.
+          First, analyze the cartoon. Then watch the mini lecture. Use this guide to take notes on the case
+          and the big civic question about equal protection.
         </p>
       </div>
       <div class="info-block">
@@ -403,7 +391,7 @@
     <!-- Big Question -->
     <section class="big-question">
       <div>
-        <div class="big-question-label">Key Question from the Video</div>
+        <div class="big-question-label">Key question from the video</div>
         <div class="big-question-text">
           “Can something be <u>separate</u> and still be truly <u>equal</u>?”
         </div>
@@ -414,32 +402,43 @@
       <div class="big-question-response"></div>
     </section>
 
-    <!-- Section 1: Analyzing the source -->
+    <!-- Section 1: Analyzing the source (cartoon before video) -->
     <section class="section source">
       <div class="section-header">
         <div class="section-title">
           Analyzing the Source
-          <span class="tag">Video notes</span>
+          <span class="tag">Cartoon first</span>
         </div>
         <div class="section-note">
-          Use complete thoughts. Bullet points are fine.
+          Look closely before you write. Then use full thoughts.
+        </div>
+      </div>
+
+      <div class="cartoon-wrap">
+        <!-- Replace the src file name with your actual image file path -->
+        <img src="jim_crow_railcars_cartoon.png" alt='"White" and "Jim Crow" railcars cartoon by John McCutcheon' />
+        <div class="cartoon-caption">
+          “White” and “Jim Crow” railcars as cartooned by John McCutcheon, from
+          <em>The Mysterious Stranger and Other Cartoons</em>, 1905. Image is in the public domain and courtesy of
+          Wikimedia Commons.
         </div>
       </div>
 
       <div class="prompt-text">
-        <strong>1. What kind of source is this?</strong> (Who is teaching, and how is the information being shared?)
-      </div>
-      <div class="response-box lines"></div>
-
-      <div class="prompt-text">
-        <strong>2. What is the main goal of this video?</strong>
-        What does the speaker want you to understand about <em>Plessy v. Ferguson</em>?
+        <strong>1. What do you see?</strong> List at least five specific details from the cartoon
+        (words, objects, people, faces, labels, etc.).
       </div>
       <div class="response-box lines tall"></div>
 
       <div class="prompt-text">
-        <strong>3. Central focus:</strong> Write down 2 to 3 key words or phrases from the video that the teacher repeats
-        or really stresses. (Example: “separate but equal,” “equal protection,” “Jim Crow.”)
+        <strong>2. What is the message?</strong> In your own words, what is the cartoonist saying about the Jim Crow
+        system and “separate” railcars?
+      </div>
+      <div class="response-box lines tall"></div>
+
+      <div class="prompt-text">
+        <strong>3. Prediction:</strong> Based on this cartoon, what do you expect the video about
+        <em>Plessy v. Ferguson</em> to talk about?
       </div>
       <div class="response-box lines"></div>
     </section>
@@ -452,24 +451,24 @@
           <span class="tag">Five Ws and how</span>
         </div>
         <div class="section-note">
-          Fill in details you hear in the video about when, where, and why.
+          Fill in details you hear in the video.
         </div>
       </div>
 
       <div class="prompt-text">
         Use the video to answer the <strong>who, what, where, when, how, and why</strong> for this case.
-        Try to squeeze in at least one specific detail in each box.
+        Try to include at least one specific detail in each box.
       </div>
 
       <div class="context-grid">
         <div class="context-item">
           <div class="context-label">Who</div>
-          <div class="mini-caption">Who are the main people and groups involved?</div>
+          <div class="mini-caption">Main people and groups involved.</div>
           <div class="context-lines"></div>
         </div>
         <div class="context-item">
           <div class="context-label">What</div>
-          <div class="mini-caption">What law was being challenged? What was the fight about?</div>
+          <div class="mini-caption">What law was challenged? What was the fight about?</div>
           <div class="context-lines"></div>
         </div>
         <div class="context-item">
@@ -479,13 +478,13 @@
         </div>
         <div class="context-item">
           <div class="context-label">When</div>
-          <div class="mini-caption">When did this happen, and what was going on in the United States at that time?</div>
+          <div class="mini-caption">When did this happen? What was going on in the United States?</div>
           <div class="context-lines"></div>
         </div>
         <div class="context-item">
           <div class="context-label">How</div>
           <div class="mini-caption">
-            How did Homer Plessy and his team turn one train ride into a Supreme Court case?
+            How did one train ride become a Supreme Court case?
           </div>
           <div class="context-lines"></div>
         </div>
@@ -497,55 +496,56 @@
       </div>
     </section>
 
-    <!-- Section 3: Significance – Cause and Effect -->
+    <!-- Section 3: Significance – Short term and long term T chart -->
     <section class="section significance">
       <div class="section-header">
         <div class="section-title">
-          Significance – Cause and Effect
-          <span class="tag">Impact over time</span>
+          Significance
+          <span class="tag">Short term and long term</span>
         </div>
         <div class="section-note">
-          Think about short term and long term effects.
+          Use the video to show how this case changed history.
         </div>
       </div>
 
       <div class="prompt-text">
-        Use the video to connect the <strong>cause</strong> (the case and the decision) to the
-        <strong>effects</strong> on people and laws in the United States.
+        Use the chart to show the <strong>short term</strong> and <strong>long term</strong> effects of
+        <em>Plessy v. Ferguson</em>. Think about daily life, laws, and the later Civil Rights Movement.
       </div>
 
-      <div class="cause-effect-grid">
-        <div class="cause-effect-box">
-          <div class="subheading">What caused the case?</div>
-          <div class="mini-caption">
-            What problems and laws led to <em>Plessy v. Ferguson</em>? How did Reconstruction ending and
-            Jim Crow growing connect to this case?
+      <div class="tchart">
+        <div class="tchart-column">
+          <div class="tchart-header">
+            <span class="label">Short term effects</span>
+            <span class="hint">What happened in the years right after 1896?</span>
           </div>
-          <div class="response-box lines tall"></div>
-        </div>
-        <div class="cause-effect-box">
-          <div class="subheading">What did the Court decide?</div>
-          <div class="mini-caption">
-            In your own words, explain what “separate but equal” meant in this decision.
+          <div class="tchart-body">
+            <div class="stem-text">
+              Sentence starters:  
+              • In the years right after the case, ...  
+              • This decision gave a green light to ...  
+              • Black communities faced ...
+            </div>
           </div>
-          <div class="response-box lines tall"></div>
+        </div>
+        <div class="tchart-column">
+          <div class="tchart-header">
+            <span class="label">Long term effects</span>
+            <span class="hint">How did it shape the next 50 to 60 years and the Civil Rights era?</span>
+          </div>
+          <div class="tchart-body">
+            <div class="stem-text">
+              Sentence starters:  
+              • Over the long term, the case led to ...  
+              • It helped create the conditions for ...  
+              • Later cases like <em>Brown v. Board</em> showed that ...
+            </div>
+          </div>
         </div>
       </div>
-
-      <div class="prompt-text">
-        <strong>Short term impact:</strong> What happened in the years right after the 1896 decision?
-        How did this ruling affect Black communities in daily life?
-      </div>
-      <div class="response-box lines"></div>
-
-      <div class="prompt-text">
-        <strong>Long term impact:</strong> How did this case shape the next 50 to 60 years
-        of segregation and the later Civil Rights Movement (Brown v. Board and beyond)?
-      </div>
-      <div class="response-box lines tall"></div>
     </section>
 
-    <!-- Section 4: Constitutional / Civic Issue – T Chart -->
+    <!-- Section 4: Constitutional / Civic Issue – T chart with more room -->
     <section class="section constitution">
       <div class="section-header">
         <div class="section-title">
@@ -553,7 +553,7 @@
           <span class="tag">Fourteenth Amendment</span>
         </div>
         <div class="section-note">
-          Use the video to help you fill in both sides.
+          Fill in both sides using the video and your notes.
         </div>
       </div>
 
@@ -569,28 +569,32 @@
             <span class="label">Side A</span>
             <span class="hint">1896 Supreme Court in Plessy v. Ferguson</span>
           </div>
-          <div class="tchart-body"></div>
+          <div class="tchart-body">
+            <div class="stem-text">
+              Sentence starters:  
+              • The Court in 1896 argued that ...  
+              • Supporters of the decision claimed that separate spaces were ...  
+              • They said that the Fourteenth Amendment still allowed ...
+            </div>
+          </div>
         </div>
         <div class="tchart-column">
           <div class="tchart-header">
             <span class="label">Side B</span>
-            <span class="hint">
-              Challenges and changes (NAACP, Thurgood Marshall, Brown v. Board, Civil Rights Movement)
-            </span>
+            <span class="hint">Challenges and changes (NAACP, Thurgood Marshall, Brown v. Board)</span>
           </div>
-          <div class="tchart-body"></div>
+          <div class="tchart-body">
+            <div class="stem-text">
+              Sentence starters:  
+              • Later lawyers and activists argued that ...  
+              • They said that “separate” is always ...  
+              • Cases like <em>Brown v. Board</em> showed that equal protection really means ...
+            </div>
+          </div>
         </div>
-      </div>
-
-      <div class="bottom-reflection">
-        <div class="reflection-label">Today connection</div>
-        <div class="prompt-text">
-          The video ends by asking if we still live with new, more hidden versions of that old “separate but equal”
-          lie. Write a short reflection: <strong>Where do you see unfair or unequal treatment today, even if it does not look exactly like Jim Crow?</strong>
-        </div>
-        <div class="reflection-box"></div>
       </div>
     </section>
+
   </div>
 </body>
 </html>
