@@ -2,16 +2,17 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Plessy v. Ferguson Video Guide Worksheet</title>
+  <title>Plessy v. Ferguson – Video Recording Sheet</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
     :root {
-      --bg-page: #f3f6fb;
+      --bg-page: #f6f7fb;
       --card-bg: #ffffff;
-      --accent-blue: #2c73c9;
-      --accent-gold: #f5c26b;
-      --accent-green: #3aa676;
-      --accent-purple: #8e6fd9;
+      --accent-blue: #3b7dd8;
+      --accent-gold: #f7c66b;
+      --accent-green: #41b38a;
+      --accent-purple: #a482ec;
+      --accent-pink: #ff97b7;
       --text-main: #222222;
       --text-muted: #555555;
       --border-soft: #d3d9e6;
@@ -24,9 +25,9 @@
     html, body {
       margin: 0;
       padding: 0;
-      background: var(--bg-page);
+      background: radial-gradient(circle at top left, #fdf6ff 0, #f6f7fb 40%, #eef4ff 100%);
       color: var(--text-main);
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-family: "Comic Sans MS", "Comic Neue", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     }
 
     body {
@@ -40,36 +41,54 @@
       max-width: 1100px;
       background: var(--card-bg);
       padding: 18px 22px;
-      border-radius: 14px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
-      border: 1px solid var(--border-soft);
+      border-radius: 18px;
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.16);
+      border: 2px solid #d0d5e6;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page::before {
+      content: "";
+      position: absolute;
+      inset: 8px 10px auto auto;
+      width: 70px;
+      height: 70px;
+      background: radial-gradient(circle, rgba(255, 229, 180, 0.45) 0, transparent 60%);
+      opacity: 0.6;
+      pointer-events: none;
     }
 
     .page-header {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: flex-start;
+      border-bottom: 2px dotted var(--border-soft);
+      padding-bottom: 8px;
+      margin-bottom: 10px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
       gap: 10px;
-      border-bottom: 2px solid var(--border-soft);
-      padding-bottom: 10px;
-      margin-bottom: 14px;
+      align-items: center;
     }
 
-    .title-block {
-      max-width: 65%;
+    .title-banner {
+      background: linear-gradient(to right, #ffe7b8, #ffd6e2);
+      border-radius: 16px;
+      border: 3px double rgba(0, 0, 0, 0.2);
+      padding: 6px 10px;
+      box-shadow: 0 3px 0 rgba(0, 0, 0, 0.15);
     }
 
-    .title-block h1 {
-      margin: 0 0 4px;
-      font-size: 1.3rem;
-      color: var(--accent-blue);
-      letter-spacing: 0.03em;
-    }
-
-    .title-block p {
+    .title-banner h1 {
       margin: 0;
-      font-size: 0.9rem;
+      font-size: 1.35rem;
+      text-align: center;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .title-banner p {
+      margin: 2px 0 0;
+      font-size: 0.82rem;
+      text-align: center;
       color: var(--text-muted);
     }
 
@@ -78,58 +97,118 @@
       grid-template-columns: auto 1fr;
       gap: 4px 6px;
       font-size: 0.8rem;
+      padding: 6px 8px;
+      border-radius: 14px;
+      border: 2px dashed #ccd3f0;
+      background: #f7f8ff;
     }
 
     .info-label {
-      font-weight: 600;
+      font-weight: 700;
       color: var(--text-muted);
       white-space: nowrap;
     }
 
     .info-line {
-      border-bottom: 1px solid var(--border-soft);
-      min-width: 120px;
+      border-bottom: 1.5px solid #bcc4e5;
+      min-width: 130px;
       height: 1.1rem;
     }
 
+    /* Big Question bubble */
     .big-question {
-      background: linear-gradient(to right, #fff8df, #ffe9c4);
-      border-radius: 10px;
-      padding: 8px 12px;
+      margin-top: 10px;
       margin-bottom: 12px;
-      border: 1px solid rgba(0, 0, 0, 0.05);
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
       display: grid;
-      grid-template-columns: minmax(0, 1.3fr) minmax(0, 2fr);
-      gap: 8px;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.8fr);
+      gap: 10px;
+      align-items: stretch;
+    }
+
+    .speech-bubble {
+      position: relative;
+      background: #fff8d9;
+      border-radius: 24px;
+      border: 2px solid #f0b75b;
+      padding: 8px 10px;
+      box-shadow: 2px 4px 0 rgba(0, 0, 0, 0.16);
+    }
+
+    .speech-bubble::after {
+      content: "";
+      position: absolute;
+      bottom: -12px;
+      left: 28px;
+      border-width: 12px 10px 0 10px;
+      border-style: solid;
+      border-color: #f0b75b transparent transparent transparent;
+    }
+
+    .speech-bubble::before {
+      content: "";
+      position: absolute;
+      bottom: -9px;
+      left: 30px;
+      border-width: 10px 8px 0 8px;
+      border-style: solid;
+      border-color: #fff8d9 transparent transparent transparent;
+      z-index: 1;
     }
 
     .big-question-label {
-      font-size: 0.95rem;
+      font-size: 0.9rem;
       font-weight: 700;
       text-transform: uppercase;
       color: #8a5a0b;
+      letter-spacing: 0.08em;
     }
 
     .big-question-text {
-      font-size: 0.9rem;
-      font-weight: 600;
-      color: #7a4d03;
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin-top: 4px;
+    }
+
+    .mini-caption {
+      font-size: 0.76rem;
+      color: var(--text-muted);
+      margin-top: 4px;
     }
 
     .big-question-response {
-      background: rgba(255, 255, 255, 0.7);
-      border-radius: 8px;
-      border: 1px dashed rgba(0, 0, 0, 0.2);
-      min-height: 60px;
+      background: #ffffff;
+      border-radius: 22px;
+      border: 2px dashed #f0b75b;
+      min-height: 80px;
+      padding: 6px 8px;
+      box-shadow: 2px 4px 0 rgba(0, 0, 0, 0.14);
+      background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.08) 1px, transparent 1px);
+      background-size: 100% 19px;
+      background-repeat: repeat-y;
+      background-position: top left;
     }
 
+    /* Sections */
     .section {
       margin-bottom: 12px;
-      border-radius: 12px;
+      border-radius: 18px;
       padding: 10px 12px;
-      border: 1px solid var(--border-soft);
-      box-shadow: 0 3px 7px rgba(0, 0, 0, 0.1);
+      border: 2px solid var(--border-soft);
+      box-shadow: 2px 4px 0 rgba(0, 0, 0, 0.16);
+      position: relative;
+    }
+
+    .section.source {
+      background: linear-gradient(to bottom right, #e9f1ff, #f6f9ff);
+    }
+    .section.context {
+      background: linear-gradient(to bottom right, #e7fbf2, #f4fff8);
+    }
+    .section.significance {
+      background: linear-gradient(to bottom right, #fff2df, #fff9f0);
+    }
+    .section.constitution {
+      background: linear-gradient(to bottom right, #f4ecff, #fbf6ff);
     }
 
     .section-header {
@@ -141,188 +220,68 @@
     }
 
     .section-title {
-      font-size: 0.95rem;
-      font-weight: 700;
-      letter-spacing: 0.04em;
+      font-size: 0.98rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
       display: inline-flex;
       align-items: center;
       gap: 6px;
     }
 
-    .section-title span.tag {
+    .section-title .tag {
       font-size: 0.7rem;
       font-weight: 700;
       padding: 2px 7px;
       border-radius: 999px;
-      background: rgba(255, 255, 255, 0.8);
-      border: 1px solid rgba(255, 255, 255, 0.9);
+      background: #ffffffcc;
+      border: 1px solid rgba(0, 0, 0, 0.12);
+    }
+
+    .section.source .tag {
+      background: #e5efff;
+    }
+    .section.context .tag {
+      background: #ddfae9;
+    }
+    .section.significance .tag {
+      background: #ffeccb;
+    }
+    .section.constitution .tag {
+      background: #f0e3ff;
     }
 
     .section-note {
-      font-size: 0.75rem;
+      font-size: 0.76rem;
       color: var(--text-muted);
       text-align: right;
     }
 
-    /* Section color themes */
-    .section.source {
-      background: linear-gradient(to bottom right, #e6f0ff, #f5f8ff);
-      border-left: 4px solid var(--accent-blue);
-    }
-
-    .section.context {
-      background: linear-gradient(to bottom right, #e7f7ee, #f5fff8);
-      border-left: 4px solid var(--accent-green);
-    }
-
-    .section.significance {
-      background: linear-gradient(to bottom right, #fff4e3, #fff9ef);
-      border-left: 4px solid var(--accent-gold);
-    }
-
-    .section.constitution {
-      background: linear-gradient(to bottom right, #f3ecff, #fbf7ff);
-      border-left: 4px solid var(--accent-purple);
-    }
-
     .prompt-text {
       font-size: 0.8rem;
-      margin-bottom: 6px;
+      margin-bottom: 4px;
       color: var(--text-main);
     }
 
     .prompt-text strong {
-      font-weight: 700;
+      font-weight: 800;
     }
 
     .response-box {
-      background: rgba(255, 255, 255, 0.9);
-      border-radius: 8px;
-      border: 1px dashed rgba(0, 0, 0, 0.2);
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 16px;
+      border: 2px dashed rgba(0, 0, 0, 0.2);
       margin-bottom: 6px;
       padding: 4px 6px;
       min-height: 70px;
+      background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.08) 1px, transparent 1px);
+      background-size: 100% 18px;
+      background-repeat: repeat-y;
+      background-position: top left;
     }
 
     .response-box.tall {
       min-height: 110px;
-    }
-
-    .response-box.lines {
-      background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.09) 1px, transparent 1px);
-      background-size: 100% 18px;
-      background-repeat: repeat-y;
-      background-position: top left;
-      padding-top: 6px;
-    }
-
-    /* Context grid */
-    .context-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 6px;
-      margin-top: 4px;
-    }
-
-    .context-item {
-      background: rgba(255, 255, 255, 0.9);
-      border-radius: 8px;
-      border: 1px dashed rgba(0, 0, 0, 0.15);
-      padding: 4px 6px;
-      min-height: 80px;
-      font-size: 0.78rem;
-    }
-
-    .context-label {
-      font-weight: 700;
-      font-size: 0.78rem;
-      margin-bottom: 2px;
-      color: var(--accent-green);
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-    }
-
-    .context-lines {
-      margin-top: 3px;
-      height: 100%;
-      background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.09) 1px, transparent 1px);
-      background-size: 100% 16px;
-      background-repeat: repeat-y;
-      background-position: top left;
-    }
-
-    .mini-caption {
-      font-size: 0.72rem;
-      color: var(--text-muted);
-      margin-top: 2px;
-    }
-
-    /* Generic T chart (used twice) */
-    .tchart {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 0;
-      border-radius: 10px;
-      overflow: hidden;
-      border: 1px solid rgba(0, 0, 0, 0.15);
-      background: rgba(255, 255, 255, 0.95);
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.14);
-      margin-top: 4px;
-    }
-
-    .tchart-column {
-      border-right: 1px solid rgba(0, 0, 0, 0.12);
-      display: flex;
-      flex-direction: column;
-    }
-
-    .tchart-column:last-child {
-      border-right: none;
-    }
-
-    .tchart-header {
-      padding: 4px 6px;
-      font-size: 0.78rem;
-      font-weight: 700;
-      text-align: center;
-      background: #efe7ff;
-      border-bottom: 1px solid rgba(0, 0, 0, 0.12);
-    }
-
-    .tchart-header span {
-      display: block;
-    }
-
-    .tchart-header .label {
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-      color: #5a3ca6;
-    }
-
-    .tchart-header .hint {
-      font-weight: 500;
-      color: #6e5ab8;
-      font-size: 0.72rem;
-    }
-
-    .tchart-body {
-      padding: 4px 6px;
-      flex: 1;
-      background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.09) 1px, transparent 1px);
-      background-size: 100% 18px;
-      background-repeat: repeat-y;
-      background-position: top left;
-      min-height: 180px;
-      position: relative;
-    }
-
-    .tchart-body .stem-text {
-      font-size: 0.72rem;
-      color: #444444;
-      margin-bottom: 2px;
-      background: rgba(255, 255, 255, 0.8);
-      padding: 2px 2px;
     }
 
     /* Cartoon block */
@@ -330,9 +289,9 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      background: rgba(255, 255, 255, 0.92);
-      border-radius: 8px;
-      border: 1px dashed rgba(0, 0, 0, 0.18);
+      background: #ffffffdd;
+      border-radius: 16px;
+      border: 2px dotted #aeb6d8;
       padding: 6px;
       margin-bottom: 6px;
     }
@@ -350,7 +309,106 @@
       color: var(--text-muted);
     }
 
-    /* Print tweaks */
+    /* Context grid bubbles */
+    .context-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px;
+      margin-top: 4px;
+    }
+
+    .context-item {
+      background: #ffffff;
+      border-radius: 18px;
+      border: 2px dashed rgba(0, 0, 0, 0.15);
+      padding: 4px 6px;
+      min-height: 80px;
+      font-size: 0.78rem;
+      position: relative;
+    }
+
+    .context-label {
+      font-weight: 800;
+      font-size: 0.8rem;
+      margin-bottom: 2px;
+      color: var(--accent-green);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .context-lines {
+      margin-top: 3px;
+      height: 100%;
+      background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.08) 1px, transparent 1px);
+      background-size: 100% 16px;
+      background-repeat: repeat-y;
+      background-position: top left;
+    }
+
+    /* T chart style (used twice) */
+    .tchart {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0;
+      border-radius: 18px;
+      overflow: hidden;
+      border: 2px solid rgba(0, 0, 0, 0.16);
+      background: #ffffffee;
+      box-shadow: 1px 3px 0 rgba(0, 0, 0, 0.14);
+      margin-top: 4px;
+    }
+
+    .tchart-column {
+      border-right: 2px dashed rgba(0, 0, 0, 0.12);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .tchart-column:last-child {
+      border-right: none;
+    }
+
+    .tchart-header {
+      padding: 4px 6px;
+      font-size: 0.8rem;
+      font-weight: 800;
+      text-align: center;
+      background: #efe7ff;
+      border-bottom: 2px dashed rgba(0, 0, 0, 0.12);
+    }
+
+    .tchart-header .label {
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #5a3ca6;
+    }
+
+    .tchart-header .hint {
+      font-weight: 500;
+      color: #6e5ab8;
+      font-size: 0.72rem;
+      margin-top: 2px;
+    }
+
+    .tchart-body {
+      padding: 4px 6px;
+      flex: 1;
+      background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.08) 1px, transparent 1px);
+      background-size: 100% 18px;
+      background-repeat: repeat-y;
+      background-position: top left;
+      min-height: 190px;
+      position: relative;
+    }
+
+    .stem-text {
+      font-size: 0.72rem;
+      color: #444444;
+      margin-bottom: 2px;
+      background: rgba(255, 255, 255, 0.9);
+      padding: 2px 2px;
+    }
+
     @media print {
       body {
         padding: 0;
@@ -359,10 +417,8 @@
       .page {
         box-shadow: none;
         border-radius: 0;
-        border: none;
-        width: 100%;
-        max-width: 100%;
-        padding: 14px 18px;
+        border-width: 1px;
+        padding: 12px 16px;
       }
     }
   </style>
@@ -371,12 +427,9 @@
   <div class="page">
     <!-- Header -->
     <header class="page-header">
-      <div class="title-block">
-        <h1>Plessy v. Ferguson Video Guide</h1>
-        <p>
-          First, analyze the cartoon. Then watch the mini lecture. Use this guide to take notes on the case
-          and the big civic question about equal protection.
-        </p>
+      <div class="title-banner">
+        <h1>Video Recording Sheet</h1>
+        <p>Plessy v. Ferguson – Cartoon, Context, and Constitutional Question</p>
       </div>
       <div class="info-block">
         <div class="info-label">Name:</div>
@@ -388,10 +441,10 @@
       </div>
     </header>
 
-    <!-- Big Question -->
+    <!-- Big Question bubble -->
     <section class="big-question">
-      <div>
-        <div class="big-question-label">Key question from the video</div>
+      <div class="speech-bubble">
+        <div class="big-question-label">Big question from the video</div>
         <div class="big-question-text">
           “Can something be <u>separate</u> and still be truly <u>equal</u>?”
         </div>
@@ -402,7 +455,7 @@
       <div class="big-question-response"></div>
     </section>
 
-    <!-- Section 1: Analyzing the source (cartoon before video) -->
+    <!-- Section 1: Analyzing the source (cartoon) -->
     <section class="section source">
       <div class="section-header">
         <div class="section-title">
@@ -410,17 +463,16 @@
           <span class="tag">Cartoon first</span>
         </div>
         <div class="section-note">
-          Look closely before you write. Then use full thoughts.
+          Look closely, then jot your thinking.
         </div>
       </div>
 
       <div class="cartoon-wrap">
-        <!-- Replace the src file name with your actual image file path -->
+        <!-- Replace src with your actual image file path -->
         <img src="jim_crow_railcars_cartoon.png" alt='"White" and "Jim Crow" railcars cartoon by John McCutcheon' />
         <div class="cartoon-caption">
           “White” and “Jim Crow” railcars as cartooned by John McCutcheon, from
-          <em>The Mysterious Stranger and Other Cartoons</em>, 1905. Image is in the public domain and courtesy of
-          Wikimedia Commons.
+          <em>The Mysterious Stranger and Other Cartoons</em>, 1905. Public domain, via Wikimedia Commons.
         </div>
       </div>
 
@@ -428,83 +480,80 @@
         <strong>1. What do you see?</strong> List at least five specific details from the cartoon
         (words, objects, people, faces, labels, etc.).
       </div>
-      <div class="response-box lines tall"></div>
+      <div class="response-box tall"></div>
 
       <div class="prompt-text">
         <strong>2. What is the message?</strong> In your own words, what is the cartoonist saying about the Jim Crow
         system and “separate” railcars?
       </div>
-      <div class="response-box lines tall"></div>
+      <div class="response-box tall"></div>
 
       <div class="prompt-text">
         <strong>3. Prediction:</strong> Based on this cartoon, what do you expect the video about
         <em>Plessy v. Ferguson</em> to talk about?
       </div>
-      <div class="response-box lines"></div>
+      <div class="response-box"></div>
     </section>
 
-    <!-- Section 2: Context – Five Ws and How -->
+    <!-- Section 2: Context – Five Ws and how -->
     <section class="section context">
       <div class="section-header">
         <div class="section-title">
-          Historical and Geographic Context
+          Context
           <span class="tag">Five Ws and how</span>
         </div>
         <div class="section-note">
-          Fill in details you hear in the video.
+          Fill these in while you watch.
         </div>
       </div>
 
       <div class="prompt-text">
         Use the video to answer the <strong>who, what, where, when, how, and why</strong> for this case.
-        Try to include at least one specific detail in each box.
       </div>
 
       <div class="context-grid">
         <div class="context-item">
-          <div class="context-label">Who</div>
+          <div class="context-label">Who?</div>
           <div class="mini-caption">Main people and groups involved.</div>
           <div class="context-lines"></div>
         </div>
         <div class="context-item">
-          <div class="context-label">What</div>
+          <div class="context-label">What?</div>
           <div class="mini-caption">What law was challenged? What was the fight about?</div>
           <div class="context-lines"></div>
         </div>
         <div class="context-item">
-          <div class="context-label">Where</div>
-          <div class="mini-caption">Where did this case start, and who did it affect?</div>
+          <div class="context-label">Where?</div>
+          <div class="mini-caption">Where did this take place and who did it affect?</div>
           <div class="context-lines"></div>
         </div>
         <div class="context-item">
-          <div class="context-label">When</div>
-          <div class="mini-caption">When did this happen? What was going on in the United States?</div>
+          <div class="context-label">When?</div>
+          <div class="mini-caption">When did this happen? What era is this?</div>
           <div class="context-lines"></div>
         </div>
         <div class="context-item">
-          <div class="context-label">How</div>
-          <div class="mini-caption">
-            How did one train ride become a Supreme Court case?
-          </div>
+          <div class="context-label">How?</div>
+          <div class="mini-caption">How did one train ride become a Supreme Court case?</div>
           <div class="context-lines"></div>
         </div>
         <div class="context-item">
-          <div class="context-label">Why</div>
+          <div class="context-label">Why?</div>
           <div class="mini-caption">Why did they challenge this law? What were they trying to prove?</div>
           <div class="context-lines"></div>
         </div>
       </div>
     </section>
 
-    <!-- Section 3: Significance – Short term and long term T chart -->
+    <!-- Section 3: Significance – Short term vs long term -->
     <section class="section significance">
       <div class="section-header">
         <div class="section-title">
           Significance
-          <span class="tag">Short term and long term</span>
+          <span class="tag">Effects over time</span>
         </div>
         <div class="section-note">
-          Use the video to show how this case changed history.
+          Think short term vs long term.
         </div>
       </div>
 
@@ -516,8 +565,8 @@
       <div class="tchart">
         <div class="tchart-column">
           <div class="tchart-header">
-            <span class="label">Short term effects</span>
-            <span class="hint">What happened in the years right after 1896?</span>
+            <div class="label">Short term effects</div>
+            <div class="hint">What happened in the years right after 1896?</div>
           </div>
           <div class="tchart-body">
             <div class="stem-text">
@@ -530,8 +579,8 @@
         </div>
         <div class="tchart-column">
           <div class="tchart-header">
-            <span class="label">Long term effects</span>
-            <span class="hint">How did it shape the next 50 to 60 years and the Civil Rights era?</span>
+            <div class="label">Long term effects</div>
+            <div class="hint">How did it shape the next 50–60 years and the Civil Rights era?</div>
           </div>
           <div class="tchart-body">
             <div class="stem-text">
@@ -545,43 +594,43 @@
       </div>
     </section>
 
-    <!-- Section 4: Constitutional / Civic Issue – T chart with more room -->
+    <!-- Section 4: Constitutional / Civic Issue -->
     <section class="section constitution">
       <div class="section-header">
         <div class="section-title">
-          Constitutional and Civic Issue
+          Constitutional &amp; Civic Issue
           <span class="tag">Fourteenth Amendment</span>
         </div>
         <div class="section-note">
-          Fill in both sides using the video and your notes.
+          Fill in both sides using the video.
         </div>
       </div>
 
       <div class="prompt-text">
         The big civic question is about the <strong>Fourteenth Amendment</strong>:
-        Does forcing people into separate spaces, even if they are called “equal,” violate the guarantee of
+        Does forcing people into separate spaces, even if they are called “equal,” violate the promise of
         <strong>equal protection of the laws</strong>?
       </div>
 
       <div class="tchart">
         <div class="tchart-column">
           <div class="tchart-header">
-            <span class="label">Side A</span>
-            <span class="hint">1896 Supreme Court in Plessy v. Ferguson</span>
+            <div class="label">Side A</div>
+            <div class="hint">1896 Supreme Court in Plessy v. Ferguson</div>
           </div>
           <div class="tchart-body">
             <div class="stem-text">
               Sentence starters:  
               • The Court in 1896 argued that ...  
-              • Supporters of the decision claimed that separate spaces were ...  
-              • They said that the Fourteenth Amendment still allowed ...
+              • Supporters of the decision claimed that “separate” was ...  
+              • They said the Fourteenth Amendment still allowed ...
             </div>
           </div>
         </div>
         <div class="tchart-column">
           <div class="tchart-header">
-            <span class="label">Side B</span>
-            <span class="hint">Challenges and changes (NAACP, Thurgood Marshall, Brown v. Board)</span>
+            <div class="label">Side B</div>
+            <div class="hint">NAACP, Thurgood Marshall, Brown v. Board, Civil Rights Movement</div>
           </div>
           <div class="tchart-body">
             <div class="stem-text">
